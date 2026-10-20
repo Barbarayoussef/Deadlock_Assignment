@@ -49,6 +49,9 @@ public class Fix1 {
         Thread t2 = new Thread(() -> transfer(b, a, 3));
         t1.start();
         t2.start();
+
+        t1.join();
+        t2.join();
         TimeUnit.SECONDS.sleep(2);
         System.out.println("Done. A = " + a.balance + " B = " + b.balance);
     }
